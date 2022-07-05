@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_marginTop="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News Feed"
+                android:textColor="#03A9F4"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="0dp"
+        app:tabIndicatorColor="#03A9F4"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="#03A9F4">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="home">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/sports"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sports">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="health">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/science"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="science">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/entertainment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="entertainment">
+
+        </com.google.android.material.tabs.TabItem>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/technology"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="technology">
+
+        </com.google.android.material.tabs.TabItem>
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tab_layout"
+        android:layout_marginTop="0dp">
+
+    </androidx.viewpager.widget.ViewPager>
+
+</RelativeLayout>
