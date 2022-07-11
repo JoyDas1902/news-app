@@ -1,4 +1,4 @@
-package com.joydas1902.newsapp;
+package com.joydas1902.newsapp.fragments;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -13,17 +13,23 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.joydas1902.newsapp.Adapter;
+import com.joydas1902.newsapp.ApiUtilities;
+import com.joydas1902.newsapp.model.Articles;
+import com.joydas1902.newsapp.R;
+import com.joydas1902.newsapp.model.NewsApiResponse;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SportsFragment extends Fragment {
+public class EntertainmentFragment extends Fragment {
 
     ProgressDialog dialog;
     String apiKey = "446c9b3979e54d5c8a7d98248cce5d9d";
-    ArrayList<ModelClass> modelClassArrayList;
+    ArrayList<Articles> articlesArrayList;
     Adapter adapter;
 
     @Nullable
@@ -33,13 +39,13 @@ public class SportsFragment extends Fragment {
         dialog.setTitle("Loading...");
         dialog.show();
 
-        View view = inflater.inflate(R.layout.sports_fragment, null);
+        View view = inflater.inflate(R.layout.entertainment_fragment, null);
 
-        modelClassArrayList = new ArrayList<>();
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerViweOfSports);
+        articlesArrayList = new ArrayList<>();
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerViweOfEntertainment);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new Adapter(getContext(), modelClassArrayList);
+        adapter = new Adapter(getContext(), articlesArrayList);
         recyclerView.setAdapter(adapter);
 
         findNews();
@@ -48,22 +54,21 @@ public class SportsFragment extends Fragment {
 
     private void findNews() {
 
-        ApiUtilities.getApiInterface().getNews("in", "sports", null, apiKey, 100).enqueue(new Callback<mainNews>() {
+        ApiUtilities.getApiInterface().getNews("in", "entertainment",null, apiKey, 100).enqueue(new Callback<NewsApiResponse>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
-            public void onResponse(Call<mainNews> call, Response<mainNews> response) {
-                if(response.isSuccessful()) {
-                    modelClassArrayList.addAll(response.body().getArticles());
+            public void onResponse(@NonNull Call<NewsApiResponse> call, @NonNull Response<NewsApiResponse> response) {
+                if(response.isSuccessful() && response.body() != null) {
+                    articlesArrayList.addAll(response.body().getArticles());
                     adapter.notifyDataSetChanged();
                     dialog.dismiss();
                 }
             }
 
             @Override
-            public void onFailure(Call<mainNews> call, Throwable t) {
+            public void onFailure(@NonNull Call<NewsApiResponse> call, @NonNull Throwable t) {
 
             }
         });
     }
 }
-

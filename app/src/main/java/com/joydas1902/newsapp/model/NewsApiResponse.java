@@ -1,13 +1,14 @@
-package com.joydas1902.newsapp;
+package com.joydas1902.newsapp.model;
 
 import java.util.ArrayList;
 
-public class mainNews {
+public class NewsApiResponse {
+
     private String status;
     private int totalResults;
-    private ArrayList<ModelClass> articles;
+    private ArrayList<Articles> articles;
 
-    public mainNews(String status, int totalResults, ArrayList<ModelClass> articles) {
+    public NewsApiResponse(String status, int totalResults, ArrayList<Articles> articles) {
         this.status = status;
         this.totalResults = totalResults;
         this.articles = articles;
@@ -29,11 +30,11 @@ public class mainNews {
         this.totalResults = totalResults;
     }
 
-    public ArrayList<ModelClass> getArticles() {
+    public ArrayList<Articles> getArticles() {
         return articles;
     }
 
-    public void setArticles(ArrayList<ModelClass> articles) {
+    public void setArticles(ArrayList<Articles> articles) {
         this.articles = articles;
     }
 }
