@@ -7,18 +7,24 @@
     tools:context=".SplashScreen">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
-        app:cardElevation="8dp"
+        app:cardElevation="20dp"
         android:layout_centerInParent="true">
 
-        <ImageView
-            android:src="@mipmap/ic_launcher"
-            android:layout_width="100dp"
-            android:layout_height="100dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/sky">
 
-        </ImageView>
+        </TextView>
 
     </androidx.cardview.widget.CardView>
 
